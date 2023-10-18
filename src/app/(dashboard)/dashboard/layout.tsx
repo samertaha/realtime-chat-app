@@ -1,7 +1,7 @@
 import { Icon, Icons } from "@/components/Icons"
 import { authOptions } from "@/lib/auth"
 import Image from "next/image" // from
-import { Link } from "lucide-react"
+import Link from "next/link"
 import { getServerSession } from "next-auth"
 import { notFound } from "next/navigation"
 import { FC, ReactNode } from "react"
@@ -33,8 +33,13 @@ const Layout = async ({ children }: LayoutProps) => {
   const session = await getServerSession(authOptions)
   if (!session) notFound()
 
-    const unseenRequestCount = (await fetchRedis('smembers', `user:${session.user.id}:incoming_friend_requests`) as User[]).length
-    
+  const unseenRequestCount = (
+    (await fetchRedis(
+      "smembers",
+      `user:${session.user.id}:incoming_friend_requests`
+    )) as User[]
+  ).length
+
   return (
     <div className="w-full flex h-screen">
       <div className="flex h-full w-full max-w-xs grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-white px-6">

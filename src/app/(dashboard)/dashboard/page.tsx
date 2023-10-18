@@ -1,16 +1,13 @@
-import Button from '@/components/ui/Button'
-import { authOptions } from '@/lib/auth'
-import { getServerSession } from 'next-auth'
+import Button from "@/components/ui/Button"
+import { authOptions } from "@/lib/auth"
+import { getServerSession } from "next-auth"
 
-interface pageProps {
-  
-}
+interface pageProps {}
 
-const page = async ({ }) => {
-  
+const page = async ({}) => {
   const session = getServerSession(authOptions)
 
-  return <Button>hello</Button>
+  return <pre>{JSON.stringify(session)}</pre>
 }
 
 export default page
