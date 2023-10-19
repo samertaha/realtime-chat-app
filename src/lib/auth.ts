@@ -5,6 +5,7 @@ import GoogleProvider from "next-auth/providers/google"
 import { fetchRedis } from "@/helpers/redis"
 import jwt from "jsonwebtoken"
 import { JWT } from "next-auth/jwt"
+import NextAuth from "next-auth/next"
 
 function getGoogleCredentials() {
   const clientId = process.env.GOOGLE_CLIENT_ID
@@ -28,7 +29,7 @@ export const authOptions: NextAuthOptions = {
   },
   jwt: {
     async encode({ token }) {
-      return jwt.sign(token as {}, process.env.JWT_SECRET!) 
+      return jwt.sign(token as {}, process.env.JWT_SECRET!)
     },
     async decode({ token }) {
       return jwt.verify(token!, process.env.JWT_SECRET!) as JWT
