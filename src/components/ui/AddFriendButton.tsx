@@ -3,7 +3,7 @@
 import { addFriendValidator } from "@/lib/validations/add-friend"
 import axios, { AxiosError } from "axios"
 import { FC, useState } from "react"
-import Button from "./Button"
+import Button from "@/components/ui/Button"
 import { z } from "zod"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -28,7 +28,9 @@ const AddFriendButton: FC<AddFriendButtonProps> = ({}) => {
     try {
       const validatedEmail = addFriendValidator.parse({ email })
 
-      await axios.post("/api/friends/add", { email: validatedEmail })
+      await axios.post("/api/friends/add", {
+        email: validatedEmail,
+      })
 
       setShowSuccessState(true)
     } catch (error) {
@@ -42,7 +44,7 @@ const AddFriendButton: FC<AddFriendButtonProps> = ({}) => {
         return
       }
 
-      setError("email", { message: "Something went wrong" })
+      setError("email", { message: "Something went wrong." })
     }
   }
 
@@ -71,9 +73,9 @@ const AddFriendButton: FC<AddFriendButtonProps> = ({}) => {
         />
         <Button>Add</Button>
       </div>
-      <p className="mt-1 text-sm text-gray-600">{errors.email?.message}</p>
+      <p className="mt-1 text-sm text-red-600">{errors.email?.message}</p>
       {showSuccessState ? (
-        <p className="mt-1 text-sm text-green-600">Friend request sent!!</p>
+        <p className="mt-1 text-sm text-green-600">Friend request sent!</p>
       ) : null}
     </form>
   )
