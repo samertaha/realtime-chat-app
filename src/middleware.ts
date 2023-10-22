@@ -5,6 +5,7 @@ import { NextResponse } from "next/server"
 export default withAuth(
   async function middleware(req) {
     const pathname = req.nextUrl.pathname
+    console.log("pathname:", pathname)
 
     // Manage route protection
     const isAuth = await getToken({ req })
@@ -16,6 +17,9 @@ export default withAuth(
     )
 
     if (isLoginPage) {
+      console.log("isLoginPage", isLoginPage)
+      console.log("req.url", req.url)
+      console.log("isAuth", isAuth)
       if (isAuth) {
         return NextResponse.redirect(new URL("/dashboard", req.url))
       }
@@ -41,5 +45,5 @@ export default withAuth(
 )
 
 export const config = {
-  matchter: ["/", "/login", "/dashboard/:path*"],
+  matcher: ["/", "/login", "/dashboard/:path*"],
 }
