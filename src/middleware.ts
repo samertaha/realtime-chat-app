@@ -4,11 +4,13 @@ import { NextResponse } from "next/server"
 
 export default withAuth(
   async function middleware(req) {
+    const secret = process.env.JWT_SECRET
     const pathname = req.nextUrl.pathname
     console.log("pathname:", pathname)
+    console.log("token:", req.nextauth.token)
 
     // Manage route protection
-    const isAuth = await getToken({ req })
+    const isAuth = await getToken({ req, secret, raw: true })
     const isLoginPage = pathname.startsWith("/login")
 
     const sensitiveRoutes = ["/dashboard"]
@@ -20,6 +22,7 @@ export default withAuth(
       console.log("isLoginPage", isLoginPage)
       console.log("req.url", req.url)
       console.log("isAuth", isAuth)
+      console.log(new URL("/dashboard", req.url).toString())
       if (isAuth) {
         return NextResponse.redirect(new URL("/dashboard", req.url))
       }
