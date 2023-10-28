@@ -44,12 +44,9 @@ const page = async ({ params }: pageProps) => {
 
   const [userId1, userId2] = chatId.split("--")
 
-  console.log("user.id", user.id)
-
   if (user.id !== userId1 && user.id !== userId2) {
     notFound()
   }
-
   const chatPartnerId = user.id === userId1 ? userId2 : userId1
   const chatPartner = (await db.get(`user:${chatPartnerId}`)) as User
   const initialMessages = await getChatMessages(chatId)
@@ -82,10 +79,16 @@ const page = async ({ params }: pageProps) => {
         </div>
       </div>
       <Messages
+        chatId={chatId}
         sessionId={session.user.id}
         initialMessages={initialMessages}
+        chatPartner={chatPartner}
+        sessionImg={session.user.image}
       />
-      <ChatInput chatPartner={chatPartner} />
+      <ChatInput
+        chatPartner={chatPartner}
+        chatId={chatId}
+      />
     </div>
   )
 }
