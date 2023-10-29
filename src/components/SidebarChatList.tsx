@@ -22,6 +22,7 @@ const SidebarChatList: FC<SidebarChatListProps> = ({ friends, sessionId }) => {
   const router = useRouter()
   const pathname = usePathname()
   const [unseenMessages, setUnseenMessages] = useState<Message[]>([])
+  const [activeChats, setActiveChats] = useState<User[]>(friends)
 
   useEffect(() => {
     pusherClient.subscribe(toPusherKey(`user:${sessionId}:chats`))
@@ -47,8 +48,8 @@ const SidebarChatList: FC<SidebarChatListProps> = ({ friends, sessionId }) => {
       ))
       setUnseenMessages((prev) => [...prev, message])
     })
-    pusherClient.bind("new_friend", (message: Message) => {
-      router.refresh()
+    pusherClient.bind("new_friend", (newFriend: User) => {
+      setActiveChats((prev) => [...prev, newFriend])
     })
 
     return () => {
