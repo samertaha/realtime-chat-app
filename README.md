@@ -12,7 +12,7 @@
 - Google Authentication
 
 ## STACK USED / DEPENDENCIES
-![stack image](/screenshots/stack.png)
+<img src="/screenshots/stack.png" alt="stack image" width="300" height="auto">
 ###### headlessui, hookform/resolvers, next-auth, upstash-redis-adapter, tailwindcss/forms, types/node, types/react, types/react-dom, upstash/redis, autoprefixer, axios, class-variance-authority, clsx, date-fns, encoding, eslint, eslint-config-next, jsonwebtoken, lucide-react, nanoid, next, next-auth, postcss, pusher, pusher-js, react, react-dom, react-hook-form, react-hot-toast, react-loading-skeleton, react-textarea-autosize, sharp, tailwind-merge, tailwindcss, typescript, zod
 ## Local development setup
 1. npm install.
