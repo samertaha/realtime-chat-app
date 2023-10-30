@@ -24,7 +24,7 @@ const page = async ({}) => {
         -1,
         -1
       )) as string[]
-      
+
       if (!lastMessageRaw) return { ...friend, lastMessage: null }
       const lastMessage = JSON.parse(lastMessageRaw) as Message
 
@@ -34,13 +34,12 @@ const page = async ({}) => {
       }
     })
   )
-  
 
   return (
     <div className="container py-12">
       <h1 className="font-bold text-5xl mb-8"></h1>
       {friendsWithLastMessage.length === 0 ? (
-        <p className="text-sm text-zinc-500">Nothung to show here...</p>
+        <p className="text-sm text-zinc-500">Nothing to show here...</p>
       ) : (
         friendsWithLastMessage.map((friend) => (
           <div
