@@ -33,8 +33,8 @@ const FriendRequestSidebarOptions: FC<FriendRequestSidebarOptionsProps> = ({
       setUnseenRequestCount((prev) => prev - 1)
     }
 
-    pusherClient.bind("incoming_friend_requests", friendRequestHandler)
     pusherClient.bind("new_friend", addedFriendHandler)
+    pusherClient.bind("incoming_friend_requests", friendRequestHandler)
 
     return () => {
       pusherClient.unsubscribe(
