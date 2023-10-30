@@ -25,4 +25,4 @@
 7.if locally then yarn dev. Injoy!
 ## contributors
 ###### Samer taha
-![samer taha photo](/screenshots/samertaha.jpg){: width="33%"}
+<img src="/screenshots/samertaha.jpg" alt="samer taha photo" width="300" height="auto">
