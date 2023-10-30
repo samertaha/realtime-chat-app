@@ -1,34 +1,29 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# REAL TIME CHAT APP
 
-## Getting Started
+####"a full stack realtime chat app built with NextJS used Upstash Redis as a database, React for the user interface, and code in TypeScript.a super-performant realtime chat app deployed to the web, ready to be used by actual users."
 
-First, run the development server:
+##FEATURES
+####
+- Instant real-time messaging using Upstash Redis
+- Full friendship system to add, accept or deny friends
+- Super fast database queries with Redis
+- Responsive UI built with TailwindCSS
+- Protection of sensitive routes
+- Google Authentication
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+##STACK USED / DEPENDENCIES
+![stack image](/screenshots/stack.png)
+###### headlessui, hookform/resolvers, next-auth, upstash-redis-adapter, tailwindcss/forms, types/node, types/react, types/react-dom, upstash/redis, autoprefixer, axios, class-variance-authority, clsx, date-fns, encoding, eslint, eslint-config-next, jsonwebtoken, lucide-react, nanoid, next, next-auth, postcss, pusher, pusher-js, react, react-dom, react-hook-form, react-hot-toast, react-loading-skeleton, react-textarea-autosize, sharp, tailwind-merge, tailwindcss, typescript, zod
+##Local development setup
+1.npm install.
+2.create .env.loval according to the .env.example file env variables.
+3.open new google credintials and add the callback url's in the google developer console.
+4.create free upstash.com account and a database.
+5.yarnl lint and yarn build for deployment.
+5.push to github and deploy to vercel create env feilds.
+6.add vercel url to the google developer console in the callback url's.
+7.if locally then yarn dev. Injoy!
+##contributors
+###Samer taha
+![samer taha photo](/screenshots/samertaha.jpg)
+alrazy1@gmail.com
