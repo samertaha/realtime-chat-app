@@ -60,7 +60,7 @@ export async function POST(req: Request) {
 
     // valid request, send friend request
 
-    pusherServer.trigger(
+    await pusherServer.trigger(
       toPusherKey(`user:${idToAdd}:incoming_friend_requests`),
       "incoming_friend_requests",
       {
@@ -71,7 +71,7 @@ export async function POST(req: Request) {
 
     await db.sadd(`user:${idToAdd}:incoming_friend_requests`, session.user.id)
 
-    return new Response("OK")
+    return new Response("OK", { status: 200 })
   } catch (error) {
     if (error instanceof z.ZodError) {
       return new Response("Invalid request payload", { status: 422 })
