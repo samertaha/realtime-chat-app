@@ -24,7 +24,8 @@ const page = async ({}) => {
         -1,
         -1
       )) as string[]
-
+      console.log("lastMessageRaw", lastMessageRaw)
+      if (!lastMessageRaw) return { ...friend, lastMessage: null }
       const lastMessage = JSON.parse(lastMessageRaw) as Message
 
       return {
